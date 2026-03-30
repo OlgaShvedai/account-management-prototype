@@ -104,7 +104,7 @@
       background: var(--surface-brand-accent);
       display: flex;
       justify-content: center;
-      padding: 32px 0;
+      padding: 32px 64px;
     }
     .hero__inner {
       width: 1312px;
@@ -118,6 +118,7 @@
       display: flex;
       flex-direction: column;
       gap: 32px;
+      align-self: center;
     }
     .hero__info-content {
       display: flex;
@@ -198,6 +199,7 @@
     }
     .marketing-card__text a {
       color: var(--content-primary);
+      text-decoration-skip-ink: none;
     }
     .marketing-card__text--lg {
       font-size: 16px;
@@ -228,6 +230,7 @@
       text-decoration: none;
       border: none;
       width: 100%;
+      font-family: inherit;
     }
     .btn--primary {
       background: var(--interactive-primary);
@@ -242,7 +245,7 @@
     /* ── Body Section ── */
     .body-section {
       background: var(--surface-white);
-      border-radius: var(--roundness-extra-round) var(--roundness-extra-round) 0 0;
+      border-radius: var(--roundness-extra-round);
       padding: 64px 0;
       display: flex;
       justify-content: center;
@@ -257,6 +260,7 @@
     .body-section__columns {
       display: flex;
       gap: 40px;
+      align-items: flex-start;
     }
     .body-section__column {
       flex: 1;
@@ -300,8 +304,8 @@
       color: var(--content-primary);
     }
     .list-item__icon svg {
-      width: 20px;
-      height: 20px;
+      width: 24px;
+      height: 24px;
     }
     .list-item__text {
       flex: 1;
@@ -321,8 +325,8 @@
       color: var(--content-secondary);
     }
     .list-item__trailing svg {
-      width: 16px;
-      height: 16px;
+      width: 24px;
+      height: 24px;
     }
 
     /* ── Divider ── */
@@ -388,6 +392,7 @@
       flex: 1;
       display: flex;
       gap: 0;
+      margin-left: -8px;
     }
     .footer__social-icon {
       width: 48px;
