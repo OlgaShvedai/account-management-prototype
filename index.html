@@ -6,619 +6,705 @@
   <title>Account Management – Envato Elements</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --color-bg: #f5f5f5;
-      --color-white: #ffffff;
-      --color-text-primary: #1a1a1a;
-      --color-text-secondary: #6b6b6b;
-      --color-text-muted: #8c8c8c;
-      --color-border: #e0e0e0;
-      --color-green-primary: #6dc24b;
-      --color-green-dark: #5aad3a;
-      --color-green-bg: #eaf7e5;
-      --color-green-text: #2e7d13;
-      --color-link: #6dc24b;
-      --color-banner-bg: #1a1a1a;
-      --color-banner-accent: #c8ff00;
-      --color-sidebar-active: #f0f0f0;
-      --color-danger: #d94848;
-      --radius-sm: 4px;
-      --radius-md: 8px;
-      --radius-lg: 12px;
-      --shadow-card: 0 1px 3px rgba(0,0,0,0.08);
-      --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --surface-brand-accent: #fff5ed;
+      --surface-primary: #191919;
+      --surface-white: #ffffff;
+      --content-primary: #191919;
+      --content-secondary: #707070;
+      --content-nav-secondary: #cccccc;
+      --interactive-primary: #9cee69;
+      --content-interactive: #1a4200;
+      --border-primary: #191919;
+      --border-secondary: #8c8c8c;
+      --border-tertiary: #ececee;
+      --spacing-1x: 4px;
+      --spacing-2x: 8px;
+      --spacing-3x: 16px;
+      --spacing-4x: 24px;
+      --spacing-5x: 32px;
+      --spacing-6x: 40px;
+      --spacing-7x: 64px;
+      --roundness-subtle: 4px;
+      --roundness-extra-round: 16px;
     }
 
     body {
-      font-family: var(--font-family);
-      color: var(--color-text-primary);
-      background: var(--color-bg);
-      line-height: 1.5;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--content-primary);
+      background: var(--surface-brand-accent);
       -webkit-font-smoothing: antialiased;
+      margin: 0;
     }
 
-    /* ── Top Nav ── */
-    .topnav {
-      background: var(--color-white);
-      border-bottom: 1px solid var(--color-border);
-      height: 56px;
-      display: flex;
-      align-items: center;
-      padding: 0 24px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .topnav__logo {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-weight: 700;
-      font-size: 16px;
-      color: var(--color-text-primary);
-      text-decoration: none;
-    }
-    .topnav__logo svg { flex-shrink: 0; }
-    .topnav__right {
-      margin-left: auto;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .topnav__avatar {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: var(--color-green-primary);
-      color: #fff;
-      font-weight: 600;
-      font-size: 13px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* ── Layout ── */
-    .layout {
-      display: flex;
-      min-height: calc(100vh - 56px);
-    }
-
-    /* ── Sidebar ── */
-    .sidebar {
-      width: 260px;
-      background: var(--color-white);
-      border-right: 1px solid var(--color-border);
-      padding: 24px 0;
-      flex-shrink: 0;
-    }
-    .sidebar__section-title {
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--color-text-muted);
-      padding: 8px 24px 4px;
-    }
-    .sidebar__link {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 9px 24px;
-      font-size: 14px;
-      color: var(--color-text-primary);
-      text-decoration: none;
-      transition: background 0.15s;
-    }
-    .sidebar__link:hover { background: var(--color-sidebar-active); }
-    .sidebar__link--active {
-      background: var(--color-sidebar-active);
-      font-weight: 600;
-    }
-    .sidebar__link svg {
-      width: 18px;
-      height: 18px;
-      color: var(--color-text-secondary);
-      flex-shrink: 0;
-    }
-    .sidebar__divider {
-      height: 1px;
-      background: var(--color-border);
-      margin: 12px 24px;
-    }
-
-    /* ── Main Content ── */
-    .main {
-      flex: 1;
-      padding: 32px 40px 60px;
-      max-width: 960px;
-    }
-
-    /* ── Banner ── */
-    .banner {
-      background: var(--color-banner-bg);
-      border-radius: var(--radius-lg);
-      padding: 20px 28px;
+    /* ── Navigation ── */
+    .nav {
+      background: var(--surface-primary);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 32px;
-      color: #fff;
+      padding: 8px 32px 0;
     }
-    .banner__content { display: flex; flex-direction: column; gap: 2px; }
-    .banner__title {
-      font-size: 16px;
-      font-weight: 700;
+    .nav__left {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 40px;
+      padding-bottom: 8px;
+      padding-right: 16px;
     }
-    .banner__title svg { color: var(--color-banner-accent); }
-    .banner__subtitle { font-size: 13px; color: #b0b0b0; }
-    .banner__btn {
-      background: var(--color-banner-accent);
-      color: var(--color-banner-bg);
-      border: none;
-      padding: 10px 20px;
-      border-radius: var(--radius-sm);
-      font-weight: 600;
-      font-size: 13px;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: opacity 0.15s;
-    }
-    .banner__btn:hover { opacity: 0.9; }
-
-    /* ── Section Header ── */
-    .section-header {
-      margin-bottom: 8px;
-    }
-    .section-label {
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--color-text-muted);
-      margin-bottom: 2px;
-    }
-    .section-title {
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    /* ── Plan Badge ── */
-    .plan-badge {
-      display: inline-flex;
+    .nav__logo {
+      height: 32px;
+      display: flex;
       align-items: center;
-      gap: 6px;
-      background: var(--color-green-bg);
-      color: var(--color-green-text);
-      font-size: 12px;
-      font-weight: 600;
-      padding: 4px 10px;
-      border-radius: 20px;
-      margin-bottom: 20px;
     }
-    .plan-badge__dot {
-      width: 6px; height: 6px;
-      background: var(--color-green-text);
-      border-radius: 50%;
-    }
-
-    /* ── Welcome Card ── */
-    .welcome-card {
-      background: var(--color-white);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      padding: 28px;
-      margin-bottom: 24px;
-      box-shadow: var(--shadow-card);
-    }
-    .welcome-card__greeting {
+    .nav__logo-text {
       font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 8px;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: -0.3px;
     }
-    .welcome-card__text {
-      font-size: 14px;
-      color: var(--color-text-secondary);
-      margin-bottom: 4px;
-      line-height: 1.6;
-    }
-    .welcome-card__text a {
-      color: var(--color-link);
-      text-decoration: none;
-      font-weight: 500;
-    }
-    .welcome-card__text a:hover { text-decoration: underline; }
-
-    .ai-highlight {
+    .nav__logo-icon {
+      width: 28px;
+      height: 32px;
+      margin-right: 4px;
       display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      background: linear-gradient(135deg, #f8f0ff 0%, #eef6ff 100%);
-      border: 1px solid #e4d4f4;
-      border-radius: var(--radius-md);
-      padding: 14px 16px;
-      margin-top: 16px;
-      font-size: 13px;
-      color: var(--color-text-secondary);
+      align-items: center;
+    }
+    .nav__right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      height: 48px;
+    }
+    .nav__user {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 0 16px;
+      font-size: 14px;
+      color: var(--content-nav-secondary);
       line-height: 1.5;
     }
-    .ai-highlight svg { flex-shrink: 0; margin-top: 1px; }
+    .nav__chevron {
+      width: 16px;
+      height: 16px;
+      opacity: 0.6;
+    }
+    .nav__border {
+      height: 1px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0.08) 100%);
+    }
 
-    /* ── Info Card ── */
-    .info-card {
-      background: var(--color-white);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      padding: 24px 28px;
-      margin-bottom: 24px;
-      box-shadow: var(--shadow-card);
+    /* ── Hero ── */
+    .hero {
+      background: var(--surface-brand-accent);
+      display: flex;
+      justify-content: center;
+      padding: 32px 0;
     }
-    .info-card__label {
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--color-text-muted);
-      margin-bottom: 8px;
-    }
-    .info-card__text {
-      font-size: 14px;
-      color: var(--color-text-secondary);
-      line-height: 1.6;
-    }
-    .info-card__savings {
+    .hero__inner {
+      width: 1312px;
+      max-width: calc(100% - 128px);
       display: flex;
       align-items: center;
-      gap: 8px;
-      margin-top: 12px;
-      padding: 12px 16px;
-      background: var(--color-green-bg);
-      border-radius: var(--radius-md);
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--color-green-text);
+      gap: 40px;
     }
-    .info-card__savings svg { flex-shrink: 0; }
-
-    /* ── Upgrade Cards ── */
-    .upgrade-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-    .upgrade-card {
-      background: var(--color-white);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      padding: 24px;
-      box-shadow: var(--shadow-card);
+    .hero__info {
+      flex: 1;
       display: flex;
       flex-direction: column;
+      gap: 32px;
     }
-    .upgrade-card__title {
-      font-size: 15px;
-      font-weight: 700;
-      margin-bottom: 10px;
+    .hero__info-content {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
     }
-    .upgrade-card__desc {
-      font-size: 13px;
-      color: var(--color-text-secondary);
+    .hero__title {
+      font-size: 36px;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: -0.5px;
+    }
+    .hero__desc {
+      font-size: 16px;
       line-height: 1.5;
-      flex: 1;
-      margin-bottom: 16px;
+      color: var(--content-primary);
     }
-    .upgrade-card__btn {
-      display: block;
-      width: 100%;
-      padding: 10px 16px;
-      border-radius: var(--radius-sm);
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-      text-align: center;
-      text-decoration: none;
-      transition: opacity 0.15s;
-      border: none;
+    .hero__desc strong {
+      font-weight: 500;
     }
-    .upgrade-card__btn:hover { opacity: 0.9; }
-    .upgrade-card__btn--primary {
-      background: var(--color-green-primary);
-      color: #fff;
-    }
-    .upgrade-card__btn--secondary {
-      background: transparent;
-      color: var(--color-green-primary);
-      border: 1.5px solid var(--color-green-primary);
-    }
-
-    /* ── Payment Section ── */
-    .payment-card {
-      background: var(--color-white);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      padding: 24px 28px;
-      margin-bottom: 24px;
-      box-shadow: var(--shadow-card);
-    }
-    .payment-card__title {
-      font-size: 15px;
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
-    .payment-card__row {
+    .hero__card-row {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 8px;
     }
-    .payment-card__visa {
-      background: #1a1f71;
-      color: #fff;
-      font-size: 10px;
-      font-weight: 700;
-      padding: 4px 8px;
-      border-radius: 3px;
-      letter-spacing: 0.05em;
+    .hero__mastercard {
+      width: 40px;
+      height: 24px;
+      border: 1px solid var(--border-tertiary);
+      border-radius: var(--roundness-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
     }
-    .payment-card__number {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--color-text-primary);
+    .hero__mastercard-circles {
+      display: flex;
+      gap: -4px;
     }
-    .payment-card__note {
-      margin-top: 12px;
-      font-size: 13px;
-      color: var(--color-text-muted);
+    .hero__card-number {
+      font-size: 16px;
       line-height: 1.5;
+    }
+
+    /* ── Marketing Cards ── */
+    .marketing-card {
+      width: 349px;
+      min-width: 349px;
+      height: 352px;
+      background: var(--surface-white);
+      border-radius: var(--roundness-subtle);
+      padding: 24px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .marketing-card--primary {
+      border: 2px solid var(--border-primary);
+    }
+    .marketing-card--secondary {
+      border: 1px solid var(--border-secondary);
+    }
+    .marketing-card__title {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+    }
+    .marketing-card__body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .marketing-card__text {
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--content-primary);
+    }
+    .marketing-card__text a {
+      color: var(--content-primary);
+    }
+    .marketing-card__text--lg {
+      font-size: 16px;
+    }
+    .marketing-card__text strong {
+      font-weight: 500;
+      letter-spacing: 0.28px;
+    }
+    .marketing-card__actions {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* ── Buttons ── */
+    .btn {
+      height: 48px;
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 24px;
+      border-radius: var(--roundness-subtle);
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.5;
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+      width: 100%;
+    }
+    .btn--primary {
+      background: var(--interactive-primary);
+      color: var(--content-interactive);
+    }
+    .btn--outline {
+      background: transparent;
+      border: 1px solid var(--border-primary);
+      color: var(--content-primary);
+    }
+
+    /* ── Body Section ── */
+    .body-section {
+      background: var(--surface-white);
+      border-radius: var(--roundness-extra-round) var(--roundness-extra-round) 0 0;
+      padding: 64px 0;
+      display: flex;
+      justify-content: center;
+    }
+    .body-section__inner {
+      width: 1024px;
+      max-width: calc(100% - 128px);
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    .body-section__columns {
+      display: flex;
+      gap: 40px;
+    }
+    .body-section__column {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .body-section__col-title {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    /* ── List Items ── */
+    .list-items {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .list-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      min-height: 40px;
+      text-decoration: none;
+      color: var(--content-primary);
+      border-radius: var(--roundness-subtle);
+      transition: background 0.15s;
+    }
+    .list-item:hover {
+      background: rgba(0,0,0,0.04);
+    }
+    .list-item__icon {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--content-primary);
+    }
+    .list-item__icon svg {
+      width: 20px;
+      height: 20px;
+    }
+    .list-item__text {
+      flex: 1;
+      font-size: 16px;
+      line-height: 1.5;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .list-item__trailing {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--content-secondary);
+    }
+    .list-item__trailing svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      height: 1px;
+      background: var(--border-tertiary);
+      width: 100%;
+    }
+
+    /* ── Help Row ── */
+    .help-row {
+      display: flex;
+      gap: 40px;
+    }
+    .help-row .list-item {
+      flex: 1;
     }
 
     /* ── Footer ── */
     .footer {
-      background: var(--color-white);
-      border-top: 1px solid var(--color-border);
-      padding: 32px 40px;
-    }
-    .footer__inner {
-      max-width: 1200px;
-      margin: 0 auto;
+      background: var(--surface-brand-accent);
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
     .footer__links {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
-      margin-bottom: 16px;
+      align-items: center;
+      gap: 8px 16px;
     }
     .footer__link {
-      font-size: 12px;
-      color: var(--color-text-muted);
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--content-primary);
       text-decoration: none;
     }
-    .footer__link:hover { color: var(--color-text-secondary); }
-    .footer__bottom {
+    .footer__link:hover {
+      text-decoration: underline;
+    }
+    .footer__separator {
+      width: 0;
+      height: 16px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding-top: 16px;
-      border-top: 1px solid var(--color-border);
+      justify-content: center;
+    }
+    .footer__separator::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 16px;
+      background: var(--border-secondary);
+      transform: rotate(0deg);
+    }
+    .footer__social-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .footer__social-icons {
+      flex: 1;
+      display: flex;
+      gap: 0;
+    }
+    .footer__social-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--content-primary);
+      border-radius: 50%;
+      transition: background 0.15s;
+    }
+    .footer__social-icon:hover {
+      background: rgba(0,0,0,0.06);
+    }
+    .footer__social-icon svg {
+      width: 24px;
+      height: 24px;
+    }
+    .footer__lang-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      height: 48px;
+      padding: 8px 0;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--content-primary);
+      font-family: inherit;
+    }
+    .footer__lang-btn svg {
+      width: 24px;
+      height: 24px;
     }
     .footer__copy {
-      font-size: 11px;
-      color: var(--color-text-muted);
-      max-width: 600px;
+      font-size: 14px;
       line-height: 1.5;
-    }
-    .footer__lang {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 12px;
-      color: var(--color-text-muted);
-      background: none;
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-sm);
-      padding: 6px 12px;
-      cursor: pointer;
+      color: var(--content-secondary);
     }
 
     /* ── Responsive ── */
-    @media (max-width: 900px) {
-      .upgrade-grid { grid-template-columns: 1fr; }
-      .sidebar { display: none; }
-      .main { padding: 24px 16px 40px; }
-      .banner { flex-direction: column; gap: 16px; align-items: flex-start; }
+    @media (max-width: 1100px) {
+      .hero__inner {
+        flex-direction: column;
+        align-items: flex-start;
+        max-width: calc(100% - 48px);
+      }
+      .marketing-card {
+        width: 100%;
+        min-width: auto;
+        height: auto;
+      }
+      .hero__cards {
+        display: flex;
+        gap: 16px;
+        width: 100%;
+      }
+      .body-section__inner {
+        max-width: calc(100% - 48px);
+      }
+    }
+    @media (max-width: 768px) {
+      .body-section__columns {
+        flex-direction: column;
+      }
+      .hero__cards {
+        flex-direction: column;
+      }
+      .help-row {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
 
-<!-- ── Top Nav ── -->
-<nav class="topnav">
-  <a href="#" class="topnav__logo">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="4" fill="#1a1a1a"/><path d="M6 7h12v2H6zM6 11h8v2H6zM6 15h10v2H6z" fill="#fff"/></svg>
-    Envato Elements
-  </a>
-  <div class="topnav__right">
-    <div class="topnav__avatar">J</div>
+<!-- Navigation -->
+<nav class="nav">
+  <div class="nav__left">
+    <div class="nav__logo">
+      <div class="nav__logo-icon">
+        <svg width="28" height="32" viewBox="0 0 28 32" fill="none">
+          <path d="M6.5 6.5L14 2L21.5 6.5V15.5L14 20L6.5 15.5V6.5Z" fill="#9cee69"/>
+          <path d="M10 10L14 8L18 10V14L14 16L10 14V10Z" fill="#1a4200" opacity="0.3"/>
+        </svg>
+      </div>
+      <span class="nav__logo-text">envato</span>
+    </div>
+  </div>
+  <div class="nav__right">
+    <div class="nav__user">
+      Juan
+      <svg class="nav__chevron" viewBox="0 0 16 16" fill="none">
+        <path d="M4 6L8 10L12 6" stroke="#ccc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
   </div>
 </nav>
 
-<div class="layout">
-
-  <!-- ── Sidebar ── -->
-  <aside class="sidebar">
-    <div class="sidebar__section-title">Account</div>
-    <a href="#" class="sidebar__link">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
-      Account settings
-    </a>
-    <a href="#" class="sidebar__link sidebar__link--active">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
-      Manage subscription
-    </a>
-    <a href="#" class="sidebar__link">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      Edit profile
-    </a>
-
-    <div class="sidebar__divider"></div>
-    <div class="sidebar__section-title">Subscription</div>
-    <a href="#" class="sidebar__link">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-      Current plan
-    </a>
-    <a href="#" class="sidebar__link">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-      Upgrade to Teams
-    </a>
-
-    <div class="sidebar__divider"></div>
-    <div class="sidebar__section-title">Security</div>
-    <a href="#" class="sidebar__link">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-      Change password
-    </a>
-    <a href="#" class="sidebar__link">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      Two-factor authentication (2FA)
-    </a>
-
-    <div class="sidebar__divider"></div>
-    <div class="sidebar__section-title">Billing</div>
-    <a href="#" class="sidebar__link">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
-      Payment method
-    </a>
-    <a href="#" class="sidebar__link">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-      Billing information
-    </a>
-    <a href="#" class="sidebar__link">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      Payment history
-    </a>
-
-    <div class="sidebar__divider"></div>
-    <a href="#" class="sidebar__link" style="color: var(--color-danger);">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-      Cancel subscription
-    </a>
-  </aside>
-
-  <!-- ── Main Content ── -->
-  <main class="main">
-
-    <!-- Banner -->
-    <div class="banner">
-      <div class="banner__content">
-        <div class="banner__title">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2l2.5 5.5L18 8.5l-4 4 1 5.5L10 15.5 4.5 18l1-5.5-4-4 5.5-1L10 2z" fill="currentColor"/></svg>
-          Elevate your plan
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero__inner">
+    <div class="hero__info">
+      <div class="hero__info-content">
+        <h1 class="hero__title">Core Individual Subscription</h1>
+        <p class="hero__desc">Your subscription renews <strong>monthly</strong>. Your next payment of <strong>USD</strong> <strong>$33.00</strong> (excluding tax and discounts) is scheduled for <strong>Jan 07, 2027</strong> — in 360 days.</p>
+        <div class="hero__card-row">
+          <div class="hero__mastercard">
+            <svg width="26" height="16" viewBox="0 0 26 16" fill="none">
+              <circle cx="10" cy="8" r="6" fill="#EB001B" opacity="0.9"/>
+              <circle cx="16" cy="8" r="6" fill="#F79E1B" opacity="0.9"/>
+              <path d="M13 3.5A5.96 5.96 0 0 1 15 8a5.96 5.96 0 0 1-2 4.5A5.96 5.96 0 0 1 11 8a5.96 5.96 0 0 1 2-4.5z" fill="#FF5F00"/>
+            </svg>
+          </div>
+          <span class="hero__card-number">**** **** **** 8757</span>
         </div>
-        <div class="banner__subtitle">Switch to annual payments and save 50%</div>
-      </div>
-      <button class="banner__btn">Switch to annual</button>
-    </div>
-
-    <!-- Plan Badge -->
-    <div class="section-header">
-      <div class="plan-badge">
-        <span class="plan-badge__dot"></span>
-        Standard Individual Subscription
       </div>
     </div>
 
-    <!-- Welcome Card -->
-    <div class="welcome-card">
-      <div class="section-label">Sometimes we have a title here:</div>
-      <h1 class="welcome-card__greeting">Welcome, Juan!</h1>
-      <p class="welcome-card__text">
-        Upgrade to the Plus or Ultimate plan and unlock up to 100 or unlimited generations. <a href="#">Explore more</a>
-      </p>
-      <div class="ai-highlight">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><path d="M12 2l2.5 5.5L20 8.5l-4 4 1 5.5-5-2.5-5 2.5 1-5.5-4-4 5.5-1z"/></svg>
-        Unlock unlimited Gen AI with Ultimate, or access up to 100 generations with Plus.
+    <div style="display:flex;gap:40px;">
+      <!-- Elevate your plan card -->
+      <div class="marketing-card marketing-card--primary">
+        <h2 class="marketing-card__title">Elevate your plan</h2>
+        <div class="marketing-card__body">
+          <p class="marketing-card__text">Upgrade to the Plus or Ultimate plan and unlock up to 100 or unlimited generations. <a href="#">Explore more</a></p>
+          <p class="marketing-card__text">Unlock <strong>unlimited Gen AI with Ultimate</strong>, or access up to 100 generations with <strong>Plus</strong>.</p>
+        </div>
+        <div class="marketing-card__actions">
+          <button class="btn btn--primary">Upgrade to Ultimate</button>
+          <button class="btn btn--outline">Upgrade to Plus</button>
+        </div>
       </div>
-    </div>
 
-    <!-- Subscription Info -->
-    <div class="info-card">
-      <div class="info-card__label">Sometimes we have a title here:</div>
-      <p class="info-card__text">
-        Your subscription renews monthly. Your next payment of <strong>USD $33.00</strong> (excluding tax and discounts) is scheduled for <strong>Jan 07, 2027</strong> — in 360 days.
-      </p>
-      <div class="info-card__savings">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-        Save $198.00/year ($16.50/month) with an annual plan – same unlimited access, half the price.
+      <!-- Switch to annual card -->
+      <div class="marketing-card marketing-card--secondary">
+        <h2 class="marketing-card__title">Switch to annual payments and save 50%</h2>
+        <div class="marketing-card__body">
+          <p class="marketing-card__text marketing-card__text--lg">Save <strong>$198.00/year</strong> ($16.50/month) with an annual plan – same unlimited access, half the price.'</p>
+        </div>
+        <div class="marketing-card__actions">
+          <button class="btn btn--outline">Switch to annual</button>
+        </div>
       </div>
-    </div>
-
-    <!-- Upgrade Cards -->
-    <div class="upgrade-grid">
-      <div class="upgrade-card">
-        <h3 class="upgrade-card__title">Upgrade to Ultimate</h3>
-        <p class="upgrade-card__desc">
-          We will adjust the amount we charge you according to the remaining days on your current subscription.
-        </p>
-        <button class="upgrade-card__btn upgrade-card__btn--primary">Upgrade to Ultimate</button>
-      </div>
-      <div class="upgrade-card">
-        <h3 class="upgrade-card__title">Upgrade to Plus</h3>
-        <p class="upgrade-card__desc">
-          We will adjust the amount we charge you according to the remaining days on your current subscription.
-        </p>
-        <button class="upgrade-card__btn upgrade-card__btn--primary">Upgrade to Plus</button>
-      </div>
-      <div class="upgrade-card">
-        <h3 class="upgrade-card__title">Upgrade to Teams</h3>
-        <p class="upgrade-card__desc">
-          We will adjust the amount we charge you according to the remaining days on your current subscription.
-        </p>
-        <button class="upgrade-card__btn upgrade-card__btn--secondary">Upgrade to Teams</button>
-      </div>
-    </div>
-
-    <!-- Payment Method -->
-    <div class="payment-card">
-      <h3 class="payment-card__title">Payment method</h3>
-      <div class="payment-card__row">
-        <span class="payment-card__visa">VISA</span>
-        <span class="payment-card__number">**** **** **** 8757</span>
-      </div>
-      <p class="payment-card__note">
-        We will adjust the amount we charge you according to the remaining days on your current subscription.
-      </p>
-    </div>
-
-  </main>
-</div>
-
-<!-- ── Footer ── -->
-<footer class="footer">
-  <div class="footer__inner">
-    <div class="footer__links">
-      <a href="#" class="footer__link">Help Center</a>
-      <a href="#" class="footer__link">Forums</a>
-      <a href="#" class="footer__link">About Elements</a>
-      <a href="#" class="footer__link">Plans &amp; Pricing</a>
-      <a href="#" class="footer__link">License Terms</a>
-      <a href="#" class="footer__link">Terms &amp; Conditions</a>
-      <a href="#" class="footer__link">Privacy Policy</a>
-      <a href="#" class="footer__link">Cookies</a>
-      <a href="#" class="footer__link">Do not share my personal information</a>
-      <a href="#" class="footer__link">Help Center</a>
-      <a href="#" class="footer__link">Cookie Settings</a>
-    </div>
-    <div class="footer__bottom">
-      <p class="footer__copy">© 2023 Envato Elements Pty Ltd. Trademarks and brands are the property of their respective owners.</p>
-      <button class="footer__lang">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        English
-      </button>
     </div>
   </div>
+</section>
+
+<!-- Body Section -->
+<section class="body-section">
+  <div class="body-section__inner">
+    <div class="body-section__columns">
+      <!-- Account settings -->
+      <div class="body-section__column">
+        <h2 class="body-section__col-title">Account settings</h2>
+        <div class="list-items">
+          <a href="#" class="list-item">
+            <div class="list-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <span class="list-item__text">Edit profile</span>
+            <div class="list-item__trailing">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            </div>
+          </a>
+          <a href="#" class="list-item">
+            <div class="list-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <span class="list-item__text">Change password</span>
+            <div class="list-item__trailing">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            </div>
+          </a>
+          <a href="#" class="list-item">
+            <div class="list-item__icon">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.5"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span class="list-item__text">Two-factor authentication (2FA)</span>
+            <div class="list-item__trailing">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Manage subscription -->
+      <div class="body-section__column">
+        <h2 class="body-section__col-title">Manage subscription</h2>
+        <div class="list-items">
+          <a href="#" class="list-item">
+            <div class="list-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <span class="list-item__text">Upgrade to Teams</span>
+            <div class="list-item__trailing">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            </div>
+          </a>
+          <a href="#" class="list-item">
+            <div class="list-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+            </div>
+            <span class="list-item__text">Payment method</span>
+            <div class="list-item__trailing">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            </div>
+          </a>
+          <a href="#" class="list-item">
+            <div class="list-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <span class="list-item__text">Billing information</span>
+            <div class="list-item__trailing">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            </div>
+          </a>
+          <a href="#" class="list-item">
+            <div class="list-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <span class="list-item__text">Payment history</span>
+            <div class="list-item__trailing">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            </div>
+          </a>
+          <a href="#" class="list-item">
+            <div class="list-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </div>
+            <span class="list-item__text">Cancel subscription</span>
+            <div class="list-item__trailing">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="help-row">
+      <a href="#" class="list-item">
+        <div class="list-item__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><circle cx="12" cy="17" r="0.5" fill="currentColor"/></svg>
+        </div>
+        <span class="list-item__text">Help Center</span>
+        <div class="list-item__trailing">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </div>
+      </a>
+      <a href="#" class="list-item">
+        <div class="list-item__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <span class="list-item__text">Forums</span>
+        <div class="list-item__trailing">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer__links">
+    <a href="#" class="footer__link">About Elements</a>
+    <div class="footer__separator"></div>
+    <a href="#" class="footer__link">Plans &amp; Pricing</a>
+    <div class="footer__separator"></div>
+    <a href="#" class="footer__link">License Terms</a>
+    <div class="footer__separator"></div>
+    <a href="#" class="footer__link">Terms &amp; Conditions</a>
+    <div class="footer__separator"></div>
+    <a href="#" class="footer__link">Privacy Policy</a>
+    <div class="footer__separator"></div>
+    <a href="#" class="footer__link">Cookies</a>
+    <div class="footer__separator"></div>
+    <a href="#" class="footer__link">Do not share my personal information</a>
+    <div class="footer__separator"></div>
+    <a href="#" class="footer__link">Help Center</a>
+    <div class="footer__separator"></div>
+    <a href="#" class="footer__link">Cookie Settings</a>
+  </div>
+  <div class="footer__social-row">
+    <div class="footer__social-icons">
+      <a href="#" class="footer__social-icon" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </a>
+      <a href="#" class="footer__social-icon" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.4a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.3 6.34 6.34 0 0 0 9.49 21.6a6.34 6.34 0 0 0 6.34-6.34V8.56a8.25 8.25 0 0 0 3.76.91V6.04a4.82 4.82 0 0 1 0 .65z"/></svg>
+      </a>
+      <a href="#" class="footer__social-icon" aria-label="Threads">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.186 24h-.007C5.461 24 .052 18.586.052 11.76.052 4.936 5.461-.002 12.186-.002c2.83 0 5.467.96 7.608 2.768a.75.75 0 1 1-.96 1.154A10.26 10.26 0 0 0 12.186 1.5C6.29 1.5 1.552 6.262 1.552 11.76c0 5.5 4.738 9.74 10.634 9.74 3.242 0 5.726-1.07 7.38-3.18 1.402-1.788 2.13-4.246 2.13-7.18a.75.75 0 1 1 1.5 0c0 3.228-.82 5.97-2.43 8.02C19.024 21.48 16.116 24 12.186 24z"/></svg>
+      </a>
+      <a href="#" class="footer__social-icon" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
+      <a href="#" class="footer__social-icon" aria-label="X">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      <a href="#" class="footer__social-icon" aria-label="Pinterest">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12.017 24c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z"/></svg>
+      </a>
+      <a href="#" class="footer__social-icon" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+      </a>
+    </div>
+    <button class="footer__lang-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      English
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+  <p class="footer__copy">© 2023 Envato Elements Pty Ltd. Trademarks and brands are the property of their respective owners.</p>
 </footer>
 
 </body>
